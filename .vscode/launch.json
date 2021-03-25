@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Unit Test Debug",
+            "type": "python",
+            "request": "test",
+            "justMyCode": false
+        }
+    ]
+}
