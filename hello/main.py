@@ -1,7 +1,15 @@
 import typer
+import sys
+import logging
 
 
-def main_typer(target=typer.Argument(help="hello target", count=typer.Argument(1, help="how many times?")):
+logger = logging.getLogger()
+
+
+def main_typer(
+    target=typer.Argument(..., help="hello target"),
+    count: int = typer.Option(1, help="how many times?"),
+):
     for i in range(count):
         sys.stdout.write(f"hello stdout {target}\n")
         logger.debug("hello debug %s", target)
@@ -10,4 +18,4 @@ def main_typer(target=typer.Argument(help="hello target", count=typer.Argument(1
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    typer.run(main_typer)
