@@ -1,15 +1,15 @@
-import typer
 import sys
 import logging
+import click
 
 
 logger = logging.getLogger()
 
 
-def main_typer(
-    target=typer.Argument(..., help="hello target"),
-    count: int = typer.Option(1, help="how many times?"),
-):
+@click.command()
+@click.option("--target", help="hello target")
+@click.option("--count", default=1, help="how many times?")
+def main(target: str, count: int):
     for i in range(count):
         sys.stdout.write(f"hello stdout {target}\n")
         logger.debug("hello debug %s", target)
@@ -18,4 +18,4 @@ def main_typer(
 
 
 if __name__ == "__main__":
-    typer.run(main_typer)
+    main()
